@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock | Dark</title>
+
+    <style>
+        body {
+            background-color: rgb(23, 19, 19);
+        }
+
+        .d-clock {
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            padding: 1vw;
+            border-radius: 10px;
+            letter-spacing: 6px;
+            transform: translate(-50%, -60%);
+            color: rgb(45, 249, 18);
+            border: 0.8vw solid rgb(251, 233, 233);
+            font-size: 5vw;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+
+    <div id="clock" class="d-clock">
+
+    </div>
+
+    <script>
+
+        function showtime() {
+
+            let time = new Date();
+
+            let hour = time.getHours();
+            let minute = time.getMinutes();
+            let second = time.getSeconds();
+            let session = "AM";
+
+            if (hour == 0) {
+                hour = 12;
+            }
+
+            if (hour > 12) {
+                hour = hour - 12;
+                session = "PM";
+            }
+
+            if (hour < 10) {
+                hour = "0" + hour;
+            }
+
+            if (minute < 10) {
+                minute = "0" + minute;
+            }
+
+            if (second < 10) {
+                second = "0" + second;
+            }
+
+            document.getElementById("clock").innerHTML = hour + ":" + minute + ":" + second + " " + session;
+
+        }
+
+        setInterval(showtime, 1000);
+
+    </script>
+
+</body>
+
+</html>
